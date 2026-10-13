@@ -29,7 +29,7 @@ export interface Project {
 
 export interface TimelineItem {
   role: string;
-  org: string;
+  org?: string;
   period: string;
   description: string;
   meta?: string;
@@ -77,7 +77,7 @@ export const portfolio = {
   about: {
     heading: "Building software that *does the work.*",
     paragraphs: [
-      "I'm a Computer Science graduate from The Women University, Multan, focused on full-stack development for AI automation and agentic AI.",
+      "I'm a Computer Science graduate focused on full-stack development for AI automation and agentic AI.",
       "My recent work includes a multi-agent shopping assistant built with Google ADK, an n8n reservation assistant with RAG, and lead-generation and CRM tools for sales teams.",
       "I enjoy challenging, real-world tasks and care about delivering high-quality work with integrity, as part of a team.",
     ],
@@ -88,7 +88,7 @@ export const portfolio = {
       { value: "5", suffix: "", label: "Certifications" },
     ],
     facts: [
-      { label: "Education", value: "BS Computer Science, The Women University, Multan" },
+      { label: "Education", value: "BS Computer Science" },
       { label: "Current role", value: "Software Developer Intern, Zeltrion Solutions" },
       { label: "Looking for", value: "Full-Stack, AI Automation & Agentic AI roles" },
     ],
@@ -131,7 +131,6 @@ export const portfolio = {
   education: [
     {
       role: "BS Computer Science",
-      org: "The Women University, Multan",
       period: "2021 – 2025",
       description: "Final year project: Sentiment-Driven Clothing Brand Recommendation System (BERT + Flask).",
       meta: "CGPA 3.67 / 4.0",

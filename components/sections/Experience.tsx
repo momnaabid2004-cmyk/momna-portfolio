@@ -38,11 +38,11 @@ function Timeline({ title, items }: { title: string; items: TimelineItem[] }) {
         <span aria-hidden="true" className="absolute left-0 top-1 h-full w-px bg-line" />
         <span aria-hidden="true" className="tl-progress absolute left-0 top-1 h-full w-px origin-top bg-accent" />
         {items.map((it) => (
-          <li key={it.role + it.org} className="tl-item relative">
+          <li key={it.role + (it.org ?? "")} className="tl-item relative">
             <span aria-hidden="true" className="absolute -left-[39px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-accent bg-bg" />
             <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">{it.period}</p>
             <h4 className="mt-2 text-lg font-bold sm:text-xl">{it.role}</h4>
-            <p className="text-sm font-medium text-fg/80">{it.org}{it.meta && <span className="text-muted"> · {it.meta}</span>}</p>
+            <p className="text-sm font-medium text-fg/80">{it.org}{it.meta && <span className="text-muted">{it.org ? " · " : ""}{it.meta}</span>}</p>
             <p className="mt-3 max-w-xl leading-relaxed text-muted">{it.description}</p>
           </li>
         ))}
