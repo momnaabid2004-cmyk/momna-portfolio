@@ -18,23 +18,10 @@ export function Footer() {
               </span>
               {person.name}
             </a>
+            <p className="mt-2 inline-flex items-center gap-1.5 text-sm text-mint/90">
+              <Icon name="map" className="h-4 w-4 text-accent" />{person.location}
+            </p>
             <p className="mx-auto mt-4 max-w-xs text-sm sm:mx-0 leading-relaxed text-mint/90">{person.title} building AI agents and automations that do the work.</p>
-            <ul className="mt-6 flex justify-center gap-3 sm:justify-start" aria-label="Social links">
-              {contact.socials.map((s) => (
-                <li key={s.label}>
-                  <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:border-accent hover:bg-accent">
-                    <Icon name={s.icon} className="h-4 w-4" />
-                  </a>
-                </li>
-              ))}
-              <li>
-                <a href={`mailto:${contact.email}`} aria-label="Email"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:border-accent hover:bg-accent">
-                  <Icon name="mail" className="h-4 w-4" />
-                </a>
-              </li>
-            </ul>
           </div>
 
           <nav aria-label="Footer">
@@ -53,10 +40,22 @@ export function Footer() {
 
           <div>
             <h2 className={heading}>Connect</h2>
-            <ul className="space-y-2.5 text-sm">
-              <li><a href={`mailto:${contact.email}`} className={`${link} break-all`}>{contact.email}</a></li>
-              <li>{person.location}</li>
-              <li>{person.focus}</li>
+            <a href={`mailto:${contact.email}`} className={`${link} break-all`}>{contact.email}</a>
+            <ul className="mt-5 flex justify-center gap-3 sm:justify-start" aria-label="Social links">
+              {contact.socials.map((s) => (
+                <li key={s.label}>
+                  <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:border-accent hover:bg-accent">
+                    <Icon name={s.icon} className="h-4 w-4" />
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a href={`mailto:${contact.email}`} aria-label="Email"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:border-accent hover:bg-accent">
+                  <Icon name="mail" className="h-4 w-4" />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
