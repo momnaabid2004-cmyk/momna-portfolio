@@ -125,7 +125,7 @@ export function Hero() {
           <motion.p variants={fadeUp} initial="hidden" animate={ready ? "show" : "hidden"} custom={0}
             className="inline-flex flex-wrap items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-accent2 sm:text-xs">
             {person.available && <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60 motion-reduce:hidden" /><span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" /></span>}
-            {person.location} · {person.availabilityText}
+            {person.availabilityText}
           </motion.p>
 
           <motion.h1 variants={fadeUp} initial="hidden" animate={ready ? "show" : "hidden"} custom={1}
