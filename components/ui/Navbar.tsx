@@ -35,6 +35,7 @@ export function Navbar() {
   const go = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setOpen(false);
+    lenis?.start(); // the open menu paused scrolling; resume before moving
     scrollTo(`#${id}`);
     history.replaceState(null, "", `#${id}`);
   };

@@ -50,7 +50,8 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   const scrollTo: ScrollTo = (target, opts = {}) => {
     const offset = opts.offset ?? -72; // leave room for the sticky navbar
     if (lenis) {
-      lenis.scrollTo(target, { offset, duration: 1.2 });
+      // force: still scroll if Lenis was paused (e.g. the mobile menu was open)
+      lenis.scrollTo(target, { offset, duration: 1.2, force: true });
       return;
     }
     // Fallback (reduced motion): native jump
