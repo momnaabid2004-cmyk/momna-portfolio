@@ -73,7 +73,7 @@ npm install -D typescript@5.9.2 @types/node@22.18.0 @types/react@19.1.12 @types/
 CLI alternative: `npm i -g vercel` → `vercel` → `vercel --prod`.
 
 ## Placeholder checklist (all in `data/portfolio.ts` unless noted)
-- [x] CV at `public/cv/Momna_Abid_CV.pdf` (CNIC and father's name removed). Replace this file when the CV changes, and remove them again.
+- [x] CV at `public/cv/Momna_Abid_CV.pdf`. To update it, replace this file with the new PDF (same name) and push. Keep CNIC and father's name out of it.
 - [ ] Final-year project: optional `image` screenshot (without one, a designed cover is drawn)
 - [ ] `contact.showPhone`: set `true` only if you want your number public
 - [ ] `showcase.video` / `showcase.poster`: swap `public/video/showreel.mp4` if you want a different video
