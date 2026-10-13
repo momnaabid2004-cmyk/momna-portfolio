@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+.env*.local
+
+# local files that are not part of the site (never push these)
+/*.mp4
+/*.png
+/*.pdf

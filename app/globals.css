@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Theme tokens (RGB triplets so Tailwind can apply opacity: bg-accent/20).
+   Light theme only. Palette: E63946 · F1FAEE · A8DADC · 457B9D · 1D3557
+--------------------------------------------------------------------------- */
+:root {
+  --c-bg: 241 250 238;      /* honeydew #F1FAEE */
+  --c-surface: 255 255 255;
+  --c-fg: 29 53 87;         /* navy #1D3557 */
+  --c-muted: 82 101 125;
+  --c-line: 212 229 226;
+  --c-accent: 230 57 70;    /* red #E63946 */
+  --c-accent2: 69 123 157;  /* steel blue #457B9D */
+  --c-mint: 168 218 220;    /* mint #A8DADC */
+  --c-navy: 29 53 87;
+  color-scheme: light;
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: rgb(var(--c-accent) / 0.35); }
+  :focus-visible { outline: 2px solid rgb(var(--c-accent)); outline-offset: 3px; border-radius: 6px; }
+  h1, h2, h3 { @apply font-display; }
+}
+
+@layer components {
+  .eyebrow {
+    @apply inline-flex items-center gap-3 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-accent;
+  }
+  .eyebrow::before { content: ""; @apply block h-px w-8 bg-accent; }
+  .card {
+    @apply rounded-xl2 border border-line bg-surface shadow-card;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-lg border border-line bg-bg px-2.5 py-1 text-xs font-medium text-fg/90;
+  }
+  /* red corner bracket on project cards */
+  .corner { position: relative; }
+  .corner::after {
+    content: ""; position: absolute; right: -1px; bottom: -1px; width: 28px; height: 28px; pointer-events: none;
+    border-right: 3px solid rgb(var(--c-accent)); border-bottom: 3px solid rgb(var(--c-accent));
+    border-bottom-right-radius: 1.25rem;
+  }
+  /* white band used to alternate section backgrounds */
+  .band { @apply border-y border-line bg-surface; }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgb(var(--c-fg) / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--c-fg) / 0.05) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  /* split-text helpers used by the GSAP reveal hook */
+  .split-line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+  .split-word { display: inline-block; will-change: transform; }
+}
+
+/* Lenis recommended styles */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Hide the native cursor only when our custom cursor is active (desktop) */
+html.has-custom-cursor, html.has-custom-cursor * { cursor: none !important; }
+
+/* Respect reduced motion everywhere */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
